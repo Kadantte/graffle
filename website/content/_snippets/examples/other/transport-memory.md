@@ -3,8 +3,15 @@
 
 <!-- dprint-ignore-start -->
 ```ts twoslash
-import { GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql'
+// Our website uses Vitepress+Twoslash. Twoslash does not discover the generated Graffle modules.
+// Perhaps we can configure Twoslash to include them. Until we figure that out, we have to
+// explicitly import them like this.
+import './graffle/modules/global.js'
+// ---cut---
+
 import { Graffle } from 'graffle'
+import { TransportMemory } from 'graffle/extensions/transport-memory'
+import { GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql'
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -18,7 +25,10 @@ const schema = new GraphQLSchema({
   }),
 })
 
-const graffle = Graffle.create({ schema })
+const graffle = Graffle
+  .create()
+  .use(TransportMemory({ schema }))
+  .transport(`memory`)
 
 const data = await graffle.gql`
   {

@@ -1,1 +1,1 @@
-<p class="ExampleLinks">Examples <span class="ExampleLinksTitleSeparator">-></span> <a href="../../examples/output/standard-graphql">Standard Graphql</a></p>
+<p class="ExampleLinks">Examples <span class="ExampleLinksTitleSeparator">-></span> <a href="../../examples/output/standard-graphql">Standard Graphql</a> <span class="ExampleLinksSeparator"></span> <a href="../../examples/preset/bare">Bare</a> <span class="ExampleLinksSeparator"></span> <a href="../../examples/preset/minimal">Minimal</a></p>
